@@ -1,0 +1,2 @@
+# FirstCsharpBasicConsoleApplication-Learnig
+I code three basic classes with just public members, one of then is to define a person, other of then is to define a product and another one is the main method to run the application. I tried to use try catch command, that was my first time using then, there are a few static functions inside it, those static functins is to show person's informations and product's informations.  
