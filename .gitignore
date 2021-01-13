@@ -3,6 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Things I think I needn't to share to my repository
+/bin
+/obj
+/Properties
+App.config
+TestingTryCatchCommand.csproj
+  
 # User-specific files
 *.rsuser
 *.suo
