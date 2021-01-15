@@ -8,9 +8,9 @@ namespace TestingTryCatchCommand
 {
     public class Person
     {
-        public string name;
-        public string height;
-        public string securityCode;
+        private string name;
+        private string height;
+        private string securityCode;
         public List<Product> personProductList = new List<Product>();
 
         public Person(string name, string height, string securityCode)
@@ -20,6 +20,30 @@ namespace TestingTryCatchCommand
             this.securityCode = securityCode;
         }
 
+        public void setName(string name)
+        {
+            this.name = name;
+        }
+
+        public string getName()
+        {
+            return name;
+        }
+
+        public string Height
+        {
+            get => height;
+            set => height = value;
+        }
+
+        public string SecurityCode
+        {
+            get => securityCode;
+            set => securityCode = value;
+        }
+
+      
+        
         public static void checkIfIsAInstance(Object person)
         {
             try
@@ -35,14 +59,14 @@ namespace TestingTryCatchCommand
             }
         }
 
-        public void writeInformations(Person person)
+        public static void ShowPersonInformation(Person person)
         {
             Console.WriteLine("NAME: {0}" +
                               "\nHEIGHT: {1}" +
                               "\nSECURITY CODE: {2}", person.name, person.height, person.securityCode);
         }
 
-        public void showProductList()
+        public void showEachProductInProductList()
         {
             foreach (Product product in personProductList)
             {

@@ -10,7 +10,7 @@ namespace TestingTryCatchCommand
     {
         public static void Main(string[] args)
         {
-            
+            Console.WriteLine("\nPERSON");
             Console.Write("PERSON NAME: ");
             string personName = Console.ReadLine();
 
@@ -21,13 +21,10 @@ namespace TestingTryCatchCommand
             string personSecurityCode = Console.ReadLine();
 
             Person personOne = new Person(personName, personYears, personSecurityCode);
-            
-            Person.checkIfIsAInstance(personOne);
-            personOne.writeInformations(personOne);
-            
-            Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("------------------------------------------------");
 
+            Person.checkIfIsAInstance(personOne);
+
+            Console.WriteLine("\nPRODUCT");
             Console.Write("PRODUCT NAME: ");
             string productName = Console.ReadLine();
 
@@ -36,18 +33,15 @@ namespace TestingTryCatchCommand
 
             Console.Write("PRODUCT PRICE: ");
             decimal productPrice = Convert.ToDecimal(Console.ReadLine());
-            
+
             Product productOne = new Product(productName, productColor, productPrice);
+            personOne.showEachProductInProductList();
 
-            Person.checkIfIsAInstance(productOne);
-            productOne.showInformations(productOne);
+            Person.ShowPersonInformation(personOne);
+            
+  
 
-            Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("------------------------------------------------");
-
-            personOne.personProductList.Add(productOne);
-            Console.WriteLine("----------------*******************************-----------------");
-            personOne.showProductList();
+          
         }
     }
 }

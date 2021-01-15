@@ -8,9 +8,9 @@ namespace TestingTryCatchCommand
 {
     public class Product
     {
-        string name;
-        string color;
-        decimal price;
+        private string name;
+        private string color;
+        private decimal price;
 
         public Product(string name, string color, decimal price)
         {
@@ -19,6 +19,24 @@ namespace TestingTryCatchCommand
             this.price = price;
         }
 
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
+
+        public string Color
+        {
+            get => name;
+            set => name = value;
+        }
+
+        public decimal Price
+        {
+            get => price;
+            set => price = value;
+        }
+      
         public void showInformations(Product product)
         {
             Console.WriteLine("NAME: {0}" +
