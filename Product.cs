@@ -6,29 +6,15 @@ using System.Threading.Tasks;
 
 namespace TestingTryCatchCommand
 {
-    public class Product
+    public sealed class Product : BasicDefaultInformations
     {
-        private string name;
         private string color;
         private decimal price;
 
-        public Product(string name, string color, decimal price)
-        {
-            this.name = name;
-            this.color = color;
-            this.price = price;
-        }
-
-        public string Name
-        {
-            get => name;
-            set => name = value;
-        }
-
         public string Color
         {
-            get => name;
-            set => name = value;
+            get => color;
+            set => color = value;
         }
 
         public decimal Price
@@ -37,20 +23,15 @@ namespace TestingTryCatchCommand
             set => price = value;
         }
       
-        public void showInformations(Product product)
+        public string ToString(Product product)
         {
-            Console.WriteLine("NAME: {0}" +
-                              "\nCOLOR: {1}" +
-                              "\nPRICE: {2:c}", product.name, product.color, product.price);            
+            return string.Format("\nPRODUCT" +
+                                $"\nNAME: {product.Name}" +
+                                $"\nCOLOR: {product.Color}" +
+                                $"\nPRICE: {product.Price:c}" +
+                                $"\nHEIGHT: {product.Height}" +
+                                $"\nWEIGHT: {product.Weight}");
         }
 
-        public static string toString(Product product)
-        {
-           return string.Format("PRODUCT" +
-                                "\nNAME: {0}" +
-                                "\nCOLOR: {1}" +
-                                "\nPRICE: {2:c}", 
-                                product.name, product.color, product.price);
-        }
     }
 }

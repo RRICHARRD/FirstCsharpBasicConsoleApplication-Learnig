@@ -6,34 +6,26 @@ using System.Threading.Tasks;
 
 namespace TestingTryCatchCommand
 {
-    public class Person
+    public sealed class Person : BasicDefaultInformations
     {
-        private string name;
-        private string height;
+        private int yearsLife;
         private string securityCode;
-        public List<Product> personProductList = new List<Product>();
+        private List<Product> productList = new List<Product>();
 
-        public Person(string name, string height, string securityCode)
+        public Person(string name, double height, double weight, int yearsLife, string securityCode)
         {
-            this.name = name;
-            this.height = height;
+            base.Name = name; 
+            base.Height = height;
+            base.Weight = weight;
+
+            this.yearsLife = yearsLife;
             this.securityCode = securityCode;
         }
 
-        public void setName(string name)
+        public int YearsLife
         {
-            this.name = name;
-        }
-
-        public string getName()
-        {
-            return name;
-        }
-
-        public string Height
-        {
-            get => height;
-            set => height = value;
+            get => yearsLife;
+            set => yearsLife = value;
         }
 
         public string SecurityCode
@@ -42,36 +34,48 @@ namespace TestingTryCatchCommand
             set => securityCode = value;
         }
 
-      
-        
-        public static void checkIfIsAInstance(Object person)
+        public void AddProductAtList(Product product)
+        {
+            this.productList.Add(product);
+        }
+
+        public static void CheckIfIsAInstance(Object person)
         {
             try
             {
                 if (person is Person)
-                    Console.WriteLine("IT'S A INSTANCE");
+                    Console.WriteLine("IT'S INSTANCE OF PERSON");
                 else
                     throw new Exception();
             }
             catch (Exception)
             {
-                Console.WriteLine("THIS ISN'T A PERSON INSTANCE");
+                Console.WriteLine("THIS OBJECT ISN'T INSTANCE OF PERSON");
             }
         }
 
-        public static void ShowPersonInformation(Person person)
+        public void ShowAllPersonInformationAndAllPersonProductList(Person person)
         {
-            Console.WriteLine("NAME: {0}" +
-                              "\nHEIGHT: {1}" +
-                              "\nSECURITY CODE: {2}", person.name, person.height, person.securityCode);
+            ShowEachPersonInformation(person);
+            ShowEachProductInPersonProductList();
         }
 
-        public void showEachProductInProductList()
+        public void ShowEachPersonInformation(Person person)
         {
-            foreach (Product product in personProductList)
+            Console.WriteLine($"\nNAME: {person.Name}" +
+                              $"\nYEARS: {person.YearsLife}" +
+                              $"\nHEIGHT: {person.Height}" +
+                              $"\nWEIGHT: {person.Weight}" +
+                              $"\nSECURITY CODE: {person.SecurityCode}");
+        }
+
+        public void ShowEachProductInPersonProductList()
+        {
+            foreach (Product product in productList)
             {
-                Console.WriteLine(Product.toString(product));
+                Console.WriteLine(product.ToString(product));
             }
         }
+        
     }
 }
